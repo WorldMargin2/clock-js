@@ -1,0 +1,64 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jquery/jquery.js"></script>
+
+    <title>clock-demo</title>
+</head>
+<body>
+    <h1>How to use</h1>
+    <ul>iframe</ul>
+    <div>
+        <iframe src="./clock.html" frameborder="0">
+
+        </iframe>
+    </div>
+    <ul>copy html struct</ul>
+
+    <!-- rewrite "--clock-height" to resize-->
+    <div id="clock_container"  style="--clock-height:150px"> 
+        <link rel="stylesheet" href="./clock.css">
+        <script src="./clock.js"></script>
+        <div id="clock" style="transform-origin: top right;">
+            <div id="hour">
+                <div class="show_num">
+                    <div class="ele1">00</div>
+                    <div class="ele3">01</div>
+                    <div class="ele4">01</div>
+                    <div class="ele2">00</div>
+                </div>
+                <div class="text">
+                    时
+                </div>
+            </div>
+            <span>:</span>
+            <div id="minute">
+                <div class="show_num">
+                    <div class="ele1">00</div>
+                    <div class="ele3">01</div>
+                    <div class="ele4">01</div>
+                    <div class="ele2">00</div>
+                </div>
+                <div class="text">
+                    分
+                </div>
+            </div>
+            <span>:</span>
+            <div id="second">
+                <div class="show_num">
+                    <div class="ele1">00</div>
+                    <div class="ele3">01</div>
+                    <div class="ele4">01</div>
+                    <div class="ele2">00</div>
+                </div>
+                <div class="text">
+                    秒
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>

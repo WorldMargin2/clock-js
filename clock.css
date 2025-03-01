@@ -1,0 +1,151 @@
+
+:root {
+    --clock-height: 50px;
+}
+
+#clock {
+    width: var(--clock-width, calc(var(--clock-height) * 1));
+    height: var(--clock-height);
+}
+
+#clock:root {
+    width: var(--clock-width, calc(var(--clock-height) * 1));
+    height: var(--clock-height);
+}
+
+#clock{
+    display: flex;
+    position: sticky;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    height: var(--clock-height);
+    width: var(--clock-width, calc(var(--clock-height) * 3));
+    bottom: 0;
+    right: 0;
+    color:#FFF;
+    transform: scale(1);
+}
+
+#clock::before{
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -3px;
+    width: 3px;
+    height: 10%;
+    background-color: #00F;
+    border-radius: 3px;
+    z-index: 4;
+    animation: clock_before_anim 0.8s 0s forwards;
+}
+
+@keyframes clock_before_anim{
+    0%{
+        top: -100%;
+        height: 10%;
+        width: 3px;
+    }25%{
+        top: 36%;
+        width: 4px;
+    }75%{
+        height: 60%;
+    }100%{
+        top: 20%;
+        width: 3px;
+        height: 60%;
+    }
+}
+
+#clock *{
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    transition: all 0s;
+}
+
+#clock span{
+    font-size: calc(var(--clock-height) / 3);
+    font-weight: bolder;
+    transform: translateY(-40%);
+}
+
+#clock>div{
+    display: flex ;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #0FF;
+    width: calc(100% / 3);
+    height: 100%;
+}
+
+#clock>div>div{
+    position: relative;
+    width: max-content;
+}
+
+#clock .show_num{
+    position: relative;
+    perspective: calc(var(--clock-height) * 1.5);
+    width: 100%;
+    height: 80%;
+    font-size: calc(var(--clock-height) / 3);
+}
+
+#clock .show_num>div{
+    position: absolute;
+    align-content: center;
+    backface-visibility: hidden;
+    background-color: #0FF;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    border-radius: calc(var(--clock-height) / 30) calc(var(--clock-height) / 30) 0 0;
+}
+
+#clock .ele1{
+    clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+}
+#clock .ele2{
+    transform: rotateX(0deg);
+    transform-origin: center;
+    clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+}
+#clock .ele3{
+    transform: rotateX(180deg);
+    transform-origin: center;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+}
+#clock .ele4{
+    clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+}
+
+#clock .text{
+    align-content: center;
+    background-color: blue;
+    width: 100%;
+    bottom: 0;
+    height: 20%;
+    color: white;
+    font-size: calc(var(--clock-height) / 6);
+    text-align: center;
+    border-radius: 0 0 calc(var(--clock-height) / 30) calc(var(--clock-height) / 30);
+
+}
+
+#clock .ele2.show_back{
+    transform: rotateX(180deg);
+    transition: all 0.5s;
+}
+#clock .ele3.show_back{
+    transform: rotateX(360deg);
+    transition: all 0.5s;
+}
